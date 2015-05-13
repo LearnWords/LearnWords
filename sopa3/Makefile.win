@@ -1,0 +1,45 @@
+# Project: Проект1
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = configdialog.o main.o mainwindow.o moc_configdialog.o moc_mainwindow.o mydict.o $(RES)
+LINKOBJ  = configdialog.o main.o mainwindow.o moc_configdialog.o moc_mainwindow.o mydict.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib"  
+INCS =  -I"C:/Dev-Cpp/include" 
+CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include" 
+BIN  = Проект1.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before Проект1.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "Проект1.exe" $(LIBS)
+
+configdialog.o: configdialog.cpp
+	$(CPP) -c configdialog.cpp -o configdialog.o $(CXXFLAGS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+mainwindow.o: mainwindow.cpp
+	$(CPP) -c mainwindow.cpp -o mainwindow.o $(CXXFLAGS)
+
+moc_configdialog.o: moc_configdialog.cpp
+	$(CPP) -c moc_configdialog.cpp -o moc_configdialog.o $(CXXFLAGS)
+
+moc_mainwindow.o: moc_mainwindow.cpp
+	$(CPP) -c moc_mainwindow.cpp -o moc_mainwindow.o $(CXXFLAGS)
+
+mydict.o: mydict.cpp
+	$(CPP) -c mydict.cpp -o mydict.o $(CXXFLAGS)
